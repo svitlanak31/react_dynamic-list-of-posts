@@ -27,7 +27,7 @@ export const App = () => {
       const fetchedUsers = await client.get<User[]>('/users');
 
       if (fetchedUsers.length === 0) {
-        throw new Error('No users found');
+        throw new Error('No users found. Please try a different search.');
       }
 
       setUsers(fetchedUsers);
@@ -46,7 +46,7 @@ export const App = () => {
 
       setPosts(fetchedPosts);
     } catch (err) {
-      setError('Failed to load posts');
+      setError('Failed to load posts due to network issues');
     } finally {
       setIsLoading(false);
     }

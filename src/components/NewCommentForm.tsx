@@ -52,9 +52,9 @@ export const NewCommentForm: React.FC<Props> = ({
       setNameError('Name is required');
     }
 
-    if (!trimmedEmail) {
+    if (!trimmedEmail.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
       hasValidationErrors = true;
-      setEmailError('Email is required');
+      setEmailError('Invalid email format');
     }
 
     if (!trimmedText) {
